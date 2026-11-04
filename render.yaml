@@ -1,0 +1,32 @@
+# Alternative host: Render Blueprint. Uses a persistent disk for SQLite (requires a paid instance).
+services:
+  - type: web
+    name: keepqr
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: keepqr-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /data/keepqr.db
+      - key: TRUST_PROXY
+        value: "1"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BASE_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_PRO_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_PRO_YEARLY
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false

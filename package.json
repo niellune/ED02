@@ -1,0 +1,21 @@
+{
+  "name": "keepqr",
+  "version": "1.0.0",
+  "description": "KeepQR — honest dynamic QR codes with scan analytics. Your codes never get held hostage.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^5.1.0",
+    "qrcode": "^1.5.4",
+    "stripe": "^19.1.0"
+  }
+}
